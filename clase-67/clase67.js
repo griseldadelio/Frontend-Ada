@@ -70,6 +70,22 @@ console.log(gano(["x", "x", "x", "x", "x", "o"])); // true
 // Aca pueden usar x, o, -
 //7-Crear una función estanJuntos que tome como argumento un array de strings personajes, y devuelva true si Sam se encuentra al lado de Frodo, ya sea antes o después, o false sino. Ejemplo:
 
+const estanJuntos = (personajes) => {
+    let sam = personajes.indexOf("Sam");
 
+    if (personajes[sam] == 0) {
+        return personajes[sam + 1] == "Frodo";
+    }
+
+    if (personajes[sam + 1] == "Frodo" || personajes[sam - 1] == "Frodo") {
+        return true
+    }
+    return false
+}
+
+
+console.log(estanJuntos(["Sam", "Frodo", "Legolas"])); //true
+console.log(estanJuntos(["Aragorn", "Frodo", "Frodo"])); //false
+console.log(estanJuntos(["Sam", "Orco", "Frodo"])); //false
 
 
