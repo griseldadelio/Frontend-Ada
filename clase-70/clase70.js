@@ -401,7 +401,7 @@ const banda1 = {
     ],
 };
 
-// completa el codigo para lograr el resultado esperado
+// completa el codigo para lograr el     resultado esperado
 let anioLanzamiento = banda1.year;
 let cantidadMiembros = (banda1.members).length;
 let miembros = banda1.members;

@@ -119,6 +119,32 @@ const lista1 = (professions) => {
     }
     return profesion;
 }
-console.log(lista1("Woodcarver"))
+//console.log(lista1("Woodcarver"))
 
 //9  Crear una función que a partir de un string, devuelva todos los habitantes que contienen dicho string en su nombre
+let stringNombre = [];
+const contieneString = (string) => {
+    for (personaje of personajes) {
+        if (personaje.name.includes(string)) {
+            stringNombre.push(personaje)
+
+        }
+    }
+    return stringNombre;
+}
+//console.log(contieneString('witz'))
+
+//10 Crear una función que devuelva un objeto con una propiedad con todas las profesiones que se desarrollan 
+//en "Brastlewark" y otra con la cantidad de profesiones encontradas.
+
+// 11 Crear una funcion que devuelva el habitante con mayor volumen de "Brastlewark". Calculamos el 
+//volumen multiplicando el alto por el ancho.
+const mayorVolumen = () => {
+    let volumen;
+    for (i = 0; i < personajes.length; i++) {
+        (personajes[i] >= volumen) ? true : (volumen = personajes[i].height * personajes[i].weight);
+    }
+    let data = personajes.filter(personaje => (personaje.height * personaje.weight) < volumen);
+    return data;
+}
+console.log(mayorVolumen())

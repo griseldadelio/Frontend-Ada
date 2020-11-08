@@ -17,13 +17,7 @@ const multiplicar = (numMul, numeros) => {
     })
 }
 */
-
-const filtrarPorLongitud = (longitud, palabras) => {
-    return palabras.filter(palabra => palabra.length > longitud)
-} 
-console.log(filtrarPorLongitud(4, ["dia", "remolacha", "azul", "sorpresa", "te", "verde",])); // ['remolacha''sorpresa', 'verde']
-
-
+const filtrarPorLongitud = (longitud, palabras) => palabras.filter(palabra => palabra.length > longitud);
 
 const filtrarPorLongitud1 = (numLong, arrayString) => {
     let longitudMayor = [];
@@ -34,6 +28,51 @@ const filtrarPorLongitud1 = (numLong, arrayString) => {
     }
     return longitudMayor;
 }
+   //console.log(filtrarPorLongitud1(3, ["dia", "remolacha", "azul", "sorpresa", "te", "verde"]));
+//3- Crear una función recortar que tome como argumentos un número cantidadLetras y un array de strings palabras y devuelva un array con las mismas palabras pero recortadas. Las palabras se recortan dejando cantidadLetras letras al iniciando, y recortando las demás. Por ejemplo, elefante recortada a 4 letras queda elef.
+const recortar = (cantidadLetras, palabras) => {
+    let palabrasrecortadas = palabras.map(palabra => {
+        let palabracortada = "";
 
-console.log(filtrarPorLongitud1(3, ["dia", "remolacha", "azul", "sorpresa", "te", "verde"]));
+        for (i = 0; i < cantidadLetras; i++) {
+            palabracortada += palabra[i];
+        }
+        return palabracortada;
+    })
 
+    return palabrasrecortadas;
+}
+//console.log(recortar(4, ["elefante", "dinosaurio", "chocolate", "avion", "america"])); // ['elef', 'dino' 'chocolate', 'avio', 'amer']
+//console.log(recortar(1, ["algoritmo", "bug", "compilador"])); // ['a', 'b', 'c']
+
+//4- Crear una función sonIguales(a, b) que tome como argumentos dos arrays a y b y devuelva true si ambos arrays tienen los mismos valores en la misma posición, o false sino.
+const sonIguales = (a, b) => {
+    for (i = 0; i < a.length; i++) {
+        if (a[i] === b[i]) {
+            return true;
+        }
+        return false;
+    }
+}
+console.log(sonIguales([10, 25, 6, 33, 48, 105], [10, 25, 6, 33, 48, 105])); // true
+console.log(sonIguales([10, 25, 6, 33, 48, 105], [11, 25, 6, 33, 48, 105])); // false
+console.log(sonIguales([10, 25, 6, 33, 48, 105], [25, 10, 6, 33, 48, 105])); // false
+
+//5- Crear una función obtenerResultado que tome como argumentos dos strings jugadoraA y jugadoraB con los 
+//nombres de cada jugadora respectivamente, y dos arrays de numeros puntajesA y puntajesB de la misma longitud.
+//La función debe devolver un string con el nombre de la ganadora o Empate en caso de que no haya ninguna. 
+//Para eso, debe comparar las mismas posiciones de cada array de puntajes, y sumar puntos a la jugadora 
+//correspondiente dependiendo de quien tenga el puntaje más alto. Por ejemplo:
+const puntajesA = [3, 5, 2];
+const puntajesB = [4, 6, 2];
+const obtenerResultado = (jugadorA, jugadorB, puntajesA, puntajesB) => {
+
+}
+// puntajesA[0] vs. puntajesB[0] -> Gana B
+// puntajesA[1] vs. puntajesB[1] -> Gana B
+// puntajesA[2] vs. puntajesB[2] -> Empate
+
+// Resultado final: Gana Jugadora B
+console.log(obtenerResultado("Ada", "Grace", [4, 4, 4], [1, 2, 3])); // Ada
+console.log(obtenerResultado("Ada", "Grace", [3, 5, 5, 7], [4, 1, 2, 9])); // Empate
+console.log(obtenerResultado("Ada", "Grace", [5, 6, 3, 1, 8], [8, 2, 4, 2, 3])); // Grace
