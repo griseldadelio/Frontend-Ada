@@ -106,6 +106,27 @@ for (i = 0; i < nombreAmigos.length; i++) {
 }
 //console.table(amigos)
 
+const mostrarTabla = () => {
+    let amigos=[];
+    let totalAmigos=[];
+    for(personaje of personajes){        
+        if(personaje.name==="Fizwood Mysttink"){
+            for(per of personaje.friends) {
+                amigos.push(per);
+            }  
+            amigos.push(personaje.name);
+        }                                
+    }
+    for(amigo of amigos) {
+        for(personaje of personajes){
+            if(personaje.name===amigo){
+                totalAmigos.push(personaje);
+            }
+        }
+    } 
+    return totalAmigos;  
+}
+//console.table(mostrarTabla()); 
 
 //7  Listar a todos los personajes que tengan como profesión "Woodcarver".
 //8 Listar a todos los personajes que tengan como profesion un dato enviado como parámetro.
@@ -136,15 +157,56 @@ const contieneString = (string) => {
 
 //10 Crear una función que devuelva un objeto con una propiedad con todas las profesiones que se desarrollan 
 //en "Brastlewark" y otra con la cantidad de profesiones encontradas.
-
-// 11 Crear una funcion que devuelva el habitante con mayor volumen de "Brastlewark". Calculamos el 
-//volumen multiplicando el alto por el ancho.
-const mayorVolumen = () => {
-    let volumen;
-    for (i = 0; i < personajes.length; i++) {
-        (personajes[i] >= volumen) ? true : (volumen = personajes[i].height * personajes[i].weight);
+const encontrarProfesiones=()=>{
+    let profesionTotal={};
+    let profesiones=[];
+    for(let personaje of personajes){ // armo el array de profesiones
+        for(let profesion of personaje.professions){
+            if(!profesiones.includes(profesion)){
+                profesiones.push(profesion);
+            }  
+        }
     }
-    let data = personajes.filter(personaje => (personaje.height * personaje.weight) < volumen);
-    return data;
+/*
+--- CON ESTO PUEDO SABER LA CANTIDAD DE PERSONAS QUE DESARROLLAN CADA ACTIVIDAD ---
+
+    for(let profesion of profesiones){ //recorro el array de profesiones
+        for(let personaje of personajes){
+            for(let profesionPersonaje of personaje.professions){
+                if(profesion === profesionPersonaje){
+                    if(profesionTotal[profesion]){
+                        profesionTotal[profesion]++;
+                    }else{
+                        profesionTotal[profesion]=1;
+                    }
+                }
+            }
+        }
+    }
+*/
+profesionTotal.profesiones=profesiones;
+profesionTotal.cantidad= profesiones.length;
+return profesionTotal;
 }
-console.log(mayorVolumen())
+//console.log(encontrarProfesiones())
+
+// 11 Crear una funcion que devuelva el habitante con mayor volumen de "Brastlewark". Calculamos el volumen multiplicando el alto por el ancho.
+const calcularVolumen = () => {
+    for (personaje of personajes) {
+     personaje.volumen = (personaje.weight * personaje.height);
+    
+    }
+    return personajes;
+}
+const mayorVolumen = () => {
+    let nuevoArray = calcularVolumen();
+    let mayorVolumen = nuevoArray[0];
+        for (let personaje of nuevoArray) {
+         if (personaje.volumen > mayorVolumen.volumen) {
+            mayorVolumen = personaje;
+        }
+    }
+    return mayorVolumen;
+}
+
+//console.log(mayorVolumen());
