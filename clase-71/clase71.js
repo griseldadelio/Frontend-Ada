@@ -24,7 +24,7 @@ console.log(personas);
 */
 
 const personajes = getInhabitants();
-// 1 Mostrar en pantalla al/los personajes mas enanos de "Brastlewark"
+// 14 Mostrar en pantalla al/los personajes mas enanos de "Brastlewark"
 /*
 const personaje = () => {
     let min;
@@ -35,7 +35,7 @@ const personaje = () => {
     return dato;
 } 
 */
-//2 Crear una funcion que devuelva los personaes por ID en base a un rango numerico.
+//15 Crear una funcion que devuelva los personaes por ID en base a un rango numerico.
 const personajePorId = (num1, num2) => {
     if (num1 < num2) {
         return personajes.filter(personaje => personaje.id >= num1 && personaje.id <= num2);
@@ -44,10 +44,10 @@ const personajePorId = (num1, num2) => {
     }
 }
 
-//3 Crear una funcion que devuelva una lista de los habitantes de "Brastlewark" por el color de pelo.
+//16 Crear una funcion que devuelva una lista de los habitantes de "Brastlewark" por el color de pelo.
 const colorDePelo = (color) => personajes.filter(personaje => personaje.hair_color === color);
 
-//4 Crear una funcion que devuelva una lista de los habitantes de "Brastlewark" en base a una propiedad y un valor enviados como parámetros.
+//17 Crear una funcion que devuelva una lista de los habitantes de "Brastlewark" en base a una propiedad y un valor enviados como parámetros.
 const lista = (key, value) => {
     const array = [];
     for (const personaje of personajes) {
@@ -59,8 +59,8 @@ const lista = (key, value) => {
 }
 //console.table(lista('age', 240))
 
-// 5 Crear una funcion que devuelva al mas alto, al mas bajo, al mas anciano, al mas joven o al mas ancho de "Brastlewark".
-/*
+//18 Crear una funcion que devuelva al mas alto, al mas bajo, al mas anciano, al mas joven o al mas ancho de "Brastlewark".
+
 const minimos = (prop) => {
     let valorMinimo = personajes[0][prop];
     let personaje = personajes[0];
@@ -92,10 +92,9 @@ const maximo = (prop) => {
 }
 console.log(maximo('height'));
 console.log(maximo('age'));
-console.log(maximo('weight'))
-*/
+console.log(maximo('weight'));
 
-// 6 Mostrar una tabla con "Fizwood Mysttink" y todos sus amigos.
+//19 Mostrar una tabla con "Fizwood Mysttink" y todos sus amigos.
 
 let Fizwood = personajes.filter(personaje => personaje.name === "Fizwood Mysttink");
 let nombreAmigos = Fizwood[0].friends;
@@ -107,29 +106,29 @@ for (i = 0; i < nombreAmigos.length; i++) {
 //console.table(amigos)
 
 const mostrarTabla = () => {
-    let amigos=[];
-    let totalAmigos=[];
-    for(personaje of personajes){        
-        if(personaje.name==="Fizwood Mysttink"){
-            for(per of personaje.friends) {
+    let amigos = [];
+    let totalAmigos = [];
+    for (personaje of personajes) {
+        if (personaje.name === "Fizwood Mysttink") {
+            for (per of personaje.friends) {
                 amigos.push(per);
-            }  
+            }
             amigos.push(personaje.name);
-        }                                
+        }
     }
-    for(amigo of amigos) {
-        for(personaje of personajes){
-            if(personaje.name===amigo){
+    for (amigo of amigos) {
+        for (personaje of personajes) {
+            if (personaje.name === amigo) {
                 totalAmigos.push(personaje);
             }
         }
-    } 
-    return totalAmigos;  
+    }
+    return totalAmigos;
 }
 //console.table(mostrarTabla()); 
 
-//7  Listar a todos los personajes que tengan como profesión "Woodcarver".
-//8 Listar a todos los personajes que tengan como profesion un dato enviado como parámetro.
+//20  Listar a todos los personajes que tengan como profesion un dato enviado como parámetro.
+//21 Listar a todos los personajes que tengan como profesion un dato enviado como parámetro.
 
 const profesion = [];
 const lista1 = (professions) => {
@@ -142,7 +141,7 @@ const lista1 = (professions) => {
 }
 //console.log(lista1("Woodcarver"))
 
-//9  Crear una función que a partir de un string, devuelva todos los habitantes que contienen dicho string en su nombre
+//22  Crear una función que a partir de un string, devuelva todos los habitantes que contienen dicho string en su nombre
 let stringNombre = [];
 const contieneString = (string) => {
     for (personaje of personajes) {
@@ -155,54 +154,54 @@ const contieneString = (string) => {
 }
 //console.log(contieneString('witz'))
 
-//10 Crear una función que devuelva un objeto con una propiedad con todas las profesiones que se desarrollan 
+//23 Crear una función que devuelva un objeto con una propiedad con todas las profesiones que se desarrollan 
 //en "Brastlewark" y otra con la cantidad de profesiones encontradas.
-const encontrarProfesiones=()=>{
-    let profesionTotal={};
-    let profesiones=[];
-    for(let personaje of personajes){ // armo el array de profesiones
-        for(let profesion of personaje.professions){
-            if(!profesiones.includes(profesion)){
+const encontrarProfesiones = () => {
+    let profesionTotal = {};
+    let profesiones = [];
+    for (let personaje of personajes) { // armo el array de profesiones
+        for (let profesion of personaje.professions) {
+            if (!profesiones.includes(profesion)) {
                 profesiones.push(profesion);
-            }  
+            }
         }
     }
-/*
---- CON ESTO PUEDO SABER LA CANTIDAD DE PERSONAS QUE DESARROLLAN CADA ACTIVIDAD ---
-
-    for(let profesion of profesiones){ //recorro el array de profesiones
-        for(let personaje of personajes){
-            for(let profesionPersonaje of personaje.professions){
-                if(profesion === profesionPersonaje){
-                    if(profesionTotal[profesion]){
-                        profesionTotal[profesion]++;
-                    }else{
-                        profesionTotal[profesion]=1;
+    /*
+    --- CON ESTO PUEDO SABER LA CANTIDAD DE PERSONAS QUE DESARROLLAN CADA ACTIVIDAD ---
+    
+        for(let profesion of profesiones){ //recorro el array de profesiones
+            for(let personaje of personajes){
+                for(let profesionPersonaje of personaje.professions){
+                    if(profesion === profesionPersonaje){
+                        if(profesionTotal[profesion]){
+                            profesionTotal[profesion]++;
+                        }else{
+                            profesionTotal[profesion]=1;
+                        }
                     }
                 }
             }
         }
-    }
-*/
-profesionTotal.profesiones=profesiones;
-profesionTotal.cantidad= profesiones.length;
-return profesionTotal;
+    */
+    profesionTotal.profesiones = profesiones;
+    profesionTotal.cantidad = profesiones.length;
+    return profesionTotal;
 }
 //console.log(encontrarProfesiones())
 
-// 11 Crear una funcion que devuelva el habitante con mayor volumen de "Brastlewark". Calculamos el volumen multiplicando el alto por el ancho.
+// 24 Crear una funcion que devuelva el habitante con mayor volumen de "Brastlewark". Calculamos el volumen multiplicando el alto por el ancho.
 const calcularVolumen = () => {
     for (personaje of personajes) {
-     personaje.volumen = (personaje.weight * personaje.height);
-    
+        personaje.volumen = (personaje.weight * personaje.height);
+
     }
     return personajes;
 }
 const mayorVolumen = () => {
     let nuevoArray = calcularVolumen();
     let mayorVolumen = nuevoArray[0];
-        for (let personaje of nuevoArray) {
-         if (personaje.volumen > mayorVolumen.volumen) {
+    for (let personaje of nuevoArray) {
+        if (personaje.volumen > mayorVolumen.volumen) {
             mayorVolumen = personaje;
         }
     }
