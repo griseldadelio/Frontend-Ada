@@ -28,7 +28,7 @@ const filtrarPorLongitud1 = (numLong, arrayString) => {
     }
     return longitudMayor;
 }
-   //console.log(filtrarPorLongitud1(3, ["dia", "remolacha", "azul", "sorpresa", "te", "verde"]));
+//console.log(filtrarPorLongitud1(3, ["dia", "remolacha", "azul", "sorpresa", "te", "verde"]));
 //3- Crear una función recortar que tome como argumentos un número cantidadLetras y un array de strings palabras y devuelva un array con las mismas palabras pero recortadas. Las palabras se recortan dejando cantidadLetras letras al iniciando, y recortando las demás. Por ejemplo, elefante recortada a 4 letras queda elef.
 const recortar = (cantidadLetras, palabras) => {
     let palabrasrecortadas = palabras.map(palabra => {
@@ -66,7 +66,26 @@ console.log(sonIguales([10, 25, 6, 33, 48, 105], [25, 10, 6, 33, 48, 105])); // 
 const puntajesA = [3, 5, 2];
 const puntajesB = [4, 6, 2];
 const obtenerResultado = (jugadorA, jugadorB, puntajesA, puntajesB) => {
+    let puntosA = 0;
+    let puntosB = 0;
 
+    for (i = 0; i < puntajesA.length; i++) {
+        if (puntajesA[i] > puntajesB[i]) {
+            puntosA++;
+        }
+        else {
+            puntosB++
+        }
+    }
+    if (puntosA > puntosB) {
+        return "Ganó: " + jugadorA;
+    }
+    else if (puntosA < puntosB) {
+        return "Ganó: " + jugadorB;
+    }
+    else {
+        return "Empate";
+    }
 }
 // puntajesA[0] vs. puntajesB[0] -> Gana B
 // puntajesA[1] vs. puntajesB[1] -> Gana B
