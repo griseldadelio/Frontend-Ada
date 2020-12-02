@@ -3,7 +3,7 @@
 // - obtenga el resultado
 // - lo pushee a un nuevo array
 // - devuelva el array final con el resultado de cada una de las llamadas al callback.
-/*
+
 const numeros = [1, 2, 3]
 const functionMap = (array, call) => {
     let newArray = [];
@@ -138,7 +138,7 @@ const dropWhile = (array, callback) => {
 
 }
 console.log(dropWhile(numeros, multiploDe10)) // [8, 2, 3, 20]
-*/
+
 
 //10- Crear una función takeWhile que acepte un array y un callback y que:
 // - por cada elemento del array ejecute el callback pasándole dicho elemento como argumento
