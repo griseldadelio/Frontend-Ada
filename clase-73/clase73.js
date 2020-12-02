@@ -62,7 +62,7 @@ const mostrarNombre = ({ name }) => {
     console.log(name);
 };
 
-const mostrarNombre = ({ id }) => { };
+//const mostrarNombre = ({ id }) => { };
 
 const calcularVolumen = ({ height, width }) => {
     console.log(height * width);
@@ -75,3 +75,6 @@ const { imagen, ...lasOtrasPropsDelWebinar } = webinar;
 lasOtrasPropsDelWebinar.formImage = objetoImagen;
 
 api.add(lasOtrasPropsDelWebinar);
+
+
+/*  LAS ACTIVIDADES DE ESTA CLASE ESTAN EN LA CLASE NUMERO 71, ERA LA CONTINUACION */
