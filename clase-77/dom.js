@@ -307,7 +307,6 @@ const misCanciones = () => {
 const calculo = () => {
     let valor = 0;
     const h2 = document.createElement('h2');
-    h2.innerHTML = valor;
     document.body.appendChild(h2);
 
     const datos = [-1, +1, -5, +5, -10, +10];
@@ -317,6 +316,5 @@ const calculo = () => {
         //button.innerText = datos[i];
         document.body.appendChild(button);
     }
-
 }
 calculo()
