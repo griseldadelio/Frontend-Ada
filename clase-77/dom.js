@@ -274,7 +274,7 @@ const animales = () => {
     div.appendChild(imagen);
     document.body.appendChild(div);
     document.body.append(txt);
-    imagen.style.width = '80%';
+    imagen.style.width = '50%';
 }
 //animales()
 
@@ -304,17 +304,65 @@ const misCanciones = () => {
  -1, +1, -5, +5, -10, +10. Cuando se clickea un botón, se tiene que sumar o restar la cantidad correspondiente,
   y actualizar el número mostrado.*/
 
-const calculo = () => {
+const datos = [-1, +1, -5, +5, -10, +10];
+const id = ['btn1', 'btn2', 'btn3', 'btn4', 'btn5', 'btn6'];
+const calculo = (datos) => {
     let valor = 0;
     const h2 = document.createElement('h2');
     document.body.appendChild(h2);
 
-    const datos = [-1, +1, -5, +5, -10, +10];
-    for (let i = datos; i < datos.length, i++;) {
+    for (let i = 0; i < datos.length; i++) {
         let button = document.createElement('button');
         button.type = 'button';
-        //button.innerText = datos[i];
+        button.innerText = datos[i];
         document.body.appendChild(button);
+        button.setAttribute('id', id[i]);
     }
+    document.getElementById('btn1').addEventListener('click', () => {
+        valor--;
+        h2.innerHTML = valor;
+    });
+    document.getElementById('btn2').addEventListener('click', () => {
+        valor++;
+        h2.innerHTML = valor;
+    });
+    document.getElementById('btn3').addEventListener('click', () => {
+        valor -= 5;
+        h2.innerHTML = valor;
+    });
+    document.getElementById('btn4').addEventListener('click', () => {
+        valor += 5;
+        h2.innerHTML = valor;
+    });
+    document.getElementById('btn5').addEventListener('click', () => {
+        valor -= 10;
+        h2.innerHTML = valor;
+    });
+    document.getElementById('btn6').addEventListener('click', () => {
+        valor += 10;
+        h2.innerHTML = valor;
+    });
 }
-calculo()
+//calculo(datos)
+
+/* 12- Crear un documento html con una adivinanza (o una pregunta) y 3 botones con posibles respuestas.Si se
+clickea la respuesta correcta, se debe mostrar en el documento un texto que lo indique (por ejemplo: ¡Correcto!)
+debajo de la adivinanza, y el botón seleccionado debe ponerse con un color de fondo verde. Si se clickea una
+respuesta incorrecta, se debe mostrar en el documento un texto que lo indique (por ejemplo: ¡Le erraste!) y
+mostrar el botón con la respuesta correcta con un color de fondo verde y los otros dos con un color de fondo
+rojo.
+ */
+const data = [{
+    'question': 'Cuando nada en los ríos parece un tronco flotante, pero si muestra sus dientes todos huyen al instante, ¿Quién soy?',
+    'answer': ['Castor', 'Raya', 'Cocodrilo']
+}
+]
+const adivinanza = (i) => {
+    const q = data[i];
+    let a = q.answer;
+    const answerArray = a.map(currentA => `<p><input type="radio" name="radio"> <span> ${currentA}  </span></p>`);
+    const answer = answerArray.join(' ');
+    let questionCode = `<p>${q.question}</p><div>${answer}</div>`;
+    document.querySelector('.question').innerHTML = questionCode;
+}
+adivinanza(0)
