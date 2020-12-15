@@ -92,6 +92,7 @@ let page = 1;
 const getMovie = (page) => {
     fetch(`${base}movie/top_rated?api_key=${apiKey}&page=${page}`)
         .then(response => {
+            //console.log(response)
             return response.json();
         })
         .then(data => {
