@@ -1,7 +1,8 @@
 const urlBase = 'https://ada-api-clase86-default-rtdb.firebaseio.com';
-const crearObjeto = () => {
-    const password = document.getElementById('password').value;
-    const user = document.getElementById('user').value;
 
-    return { user, password }
+const creatObject = () => {
+    const user = document.getElementById('user').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    return { user, email, password }
 }
