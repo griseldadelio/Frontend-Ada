@@ -73,8 +73,5 @@ const deletePet = (e) => {
         .then(response => {
             return response.json()
         })
-        .then(data => console.log(data))
         .catch(error => console.log(error))
 }
-
-buttonDelete.addEventListener('click', deletePet)
