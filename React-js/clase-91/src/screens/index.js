@@ -1,0 +1,7 @@
+export { News } from './News'
+export { Services } from './Services'
+export { Contact } from './Contact'
+export { Home } from './Home'
+export { Offers } from './Offers'
+export { Shop } from './Shop'
+export { Login } from './Login'

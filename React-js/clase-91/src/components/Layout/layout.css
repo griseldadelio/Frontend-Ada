@@ -1,0 +1,8 @@
+.rowLayout{
+display: flex;
+flex-direction: row;
+}
+ 
+.txt-aligne{
+    text-align: center;
+}
